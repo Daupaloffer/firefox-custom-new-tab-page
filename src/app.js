@@ -1,10 +1,15 @@
 const log = false;
 
-const showCustomPage = ({ customNewTabUrl, customNewTabTitle }) => {
-	log && console.debug( '[showCustomPage] init', { customNewTabUrl, customNewTabTitle } );
+const showCustomPage = ({ customNewTabUrl, customNewTabTitle, customNewTabTheme }) => {
+	log && console.debug( '[showCustomPage] init', { customNewTabUrl, customNewTabTitle, customNewTabTheme } );
 
 	if ( customNewTabTitle ) {
 		document.title = customNewTabTitle;
+	}
+
+	// If theme set to dark (1), set body background to appropriate Firefox grey
+	if ( customNewTabTheme == 1 ) {
+		document.body.style.backgroundColor = '#39383D';
 	}
 
 	// no tab URL set, do nothing
@@ -25,7 +30,7 @@ const showCustomPage = ({ customNewTabUrl, customNewTabTitle }) => {
 };
 
 const init = _ => {
-	browser.storage.sync.get([ 'customNewTabUrl', 'customNewTabTitle' ])
+	browser.storage.sync.get([ 'customNewTabUrl', 'customNewTabTitle', 'customNewTabTheme' ])
 		.then( showCustomPage );
 };
 

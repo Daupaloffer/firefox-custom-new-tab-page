@@ -29,6 +29,21 @@
 			<input class="form__input" type="text" id="customNewTabTitle" placeholder="New Tab">
 		</div>
 
+		<div class="form__field">
+			<label class="form__label">Theme</label>
+
+			<span class="form__hint">
+				Set to match the theme of the rest of your browser.
+				<br>
+				Setting this to dark, along with browser settings, will avoid white flashes while loading the new tab.
+			</span>
+
+			<select class="form__input" id="customNewTabTheme">
+				<option value="0">Light</option>
+				<option value="1">Dark</option>
+			</select>
+		</div>
+
 		<footer class="form__actions">
 			<button class="btn" type="submit">Save</button>
 		</footer>
